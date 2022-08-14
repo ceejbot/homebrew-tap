@@ -14,9 +14,9 @@ class Tomato < Formula
 
 	  def install
 	  	bin.install "tomato" => "tomato"
-		bash_completion.install "tomato.bash" => "tomato"
-		zsh_completion.install "tomato.zsh" => "_tomato"
-		fish_completion.install "tomato.fish"
+		bash_completion.install "completions.bash" => "tomato"
+		zsh_completion.install "completions.zsh" => "_tomato"
+		fish_completion.install "completions.fish" => "tomato"
 	  end
 	end
 	if Hardware::CPU.arm?
@@ -25,9 +25,9 @@ class Tomato < Formula
 
 	  def install
 		bin.install "tomato" => "tomato"
-		bash_completion.install "tomato.bash" => "tomato"
-		zsh_completion.install "tomato.zsh" => "_tomato"
-		fish_completion.install "tomato.fish"
+		bash_completion.install "completions.bash" => "tomato"
+		zsh_completion.install "completions.zsh" => "_tomato"
+		fish_completion.install "completions.fish" => "tomato"
 	  end
 	end
   end
@@ -39,9 +39,9 @@ class Tomato < Formula
 
 	  def install
 		bin.install "tomato" => "tomato"
-		bash_completion.install "tomato.bash" => "tomato"
-		zsh_completion.install "tomato.zsh" => "_tomato"
-		fish_completion.install "tomato.fish"
+		bash_completion.install "completions.bash" => "tomato"
+		zsh_completion.install "completions.zsh" => "_tomato"
+		fish_completion.install "completions.fish" => "tomato"
 	  end
 	end
 	if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
@@ -50,9 +50,9 @@ class Tomato < Formula
 
 	  def install
 		bin.install "tomato" => "tomato"
-		bash_completion.install "tomato.bash" => "tomato"
-		zsh_completion.install "tomato.zsh" => "_tomato"
-		fish_completion.install "tomato.fish"
+		bash_completion.install "completions.bash" => "tomato"
+		zsh_completion.install "completions.zsh" => "_tomato"
+		fish_completion.install "completions.fish" => "tomato"
 	  end
 	end
   end
