@@ -18,7 +18,7 @@ class Md2nexus < Formula
         end
       end
       if Hardware::CPU.arm?
-        url "https://github.com/ceejbot/md2nexus/releases/download/0.2.0/md2nexus-x86_64-apple-darwin.tar.xz"
+        url "https://github.com/ceejbot/md2nexus/releases/download/0.2.0/md2nexus-aarch64-apple-darwin.tar.xz"
         sha256 "3e8ab1696063e8ada75ae80d4829f1c3b710d5ab63dbf417c028bf5edac9df9b"
   
         def install
