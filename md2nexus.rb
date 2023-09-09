@@ -1,7 +1,7 @@
 # typed: false
 # frozen_string_literal: true
 
-class Md2Nexus < Formula
+class Md2nexus < Formula
     desc "🍅 A command-line tool to get and set values in toml files while preserving comments and formatting."
     homepage "https://github.com/ceejbot/md2nexus"
     version "0.1.0"
