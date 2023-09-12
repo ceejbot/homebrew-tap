@@ -4,35 +4,35 @@
 class Md2nexus < Formula
     desc "🍅 A command-line tool to get and set values in toml files while preserving comments and formatting."
     homepage "https://github.com/ceejbot/md2nexus"
-    version "0.2.0"
+    version "0.2.1"
     license "GPL-3.0"
-  
+
     on_macos do
-      if Hardware::CPU.intel?
-        url "https://github.com/ceejbot/md2nexus/releases/download/0.2.0/md2nexus-x86_64-apple-darwin.tar.xz"
-        sha256 "ddfb02949530247347e4f4a2531c4846861f634c00035b55ea057caf41657818"
-  
+        if Hardware::CPU.arm?
+            url "https://github.com/ceejbot/md2nexus/releases/download/0.2.1/md2nexus-aarch64-apple-darwin.tar.xz"
+            sha256 "1229b0e6adda50232237021a1cb153f458473ea5395a64c68a95cd0c989b0db7"
+
+            def install
+              bin.install "md2nexus" => "md2nexus"
+              generate_completions_from_executable(bin/"md2nexus", "--completions")
+            end
+          end
+        end
+        if Hardware::CPU.intel?
+        url "https://github.com/ceejbot/md2nexus/releases/download/0.2.1/md2nexus-x86_64-apple-darwin.tar.xz"
+        sha256 "e2d6a27ffb6936430564c6a2120f6e1458293576ff93635559999d7fc844f171"
+
         def install
             bin.install "md2nexus" => "md2nexus"
             generate_completions_from_executable(bin/"md2nexus", "--completions")
         end
       end
-      if Hardware::CPU.arm?
-        url "https://github.com/ceejbot/md2nexus/releases/download/0.2.0/md2nexus-aarch64-apple-darwin.tar.xz"
-        sha256 "3e8ab1696063e8ada75ae80d4829f1c3b710d5ab63dbf417c028bf5edac9df9b"
-  
-        def install
-          bin.install "md2nexus" => "md2nexus"
-          generate_completions_from_executable(bin/"md2nexus", "--completions")
-        end
-      end
-    end
-  
+
     on_linux do
       if Hardware::CPU.intel?
-        url "https://github.com/ceejbot/md2nexus/releases/download/0.2.0/md2nexus-x86_64-unknown-linux-gnu.tar.xz"
-        sha256 "0c1b429762db982e7ec3c63c68c904c030ec7ed5a9e1bc125efc0e98d9202a72"
-  
+        url "https://github.com/ceejbot/md2nexus/releases/download/0.2.1/md2nexus-x86_64-unknown-linux-gnu.tar.xz"
+        sha256 "6c393f56614046121c4191192c7d355ebdef41a179dc588dd6e0a384f030368d"
+
         def install
           bin.install "md2nexus" => "md2nexus"
           generate_completions_from_executable(bin/"md2nexus", "--completions")
@@ -40,4 +40,3 @@ class Md2nexus < Formula
       end
     end
   end
-  
