@@ -4,13 +4,13 @@
 class Tomato < Formula
   desc "🍅 A command-line tool to get and set values in toml files while preserving comments and formatting."
   homepage "https://github.com/ceejbot/tomato"
-  version "0.4.0"
+  version "0.5.0"
   license "BlueOak-1.0.0"
 
   on_macos do
 	if Hardware::CPU.intel?
-	  url "https://github.com/ceejbot/tomato/releases/download/0.4.0/tomato-toml-x86_64-apple-darwin.tar.xz"
-	  sha256 "138be0297319f7c6a501eb5b52af7a1c97c27c4b073d8790bc54ff604e916cbb"
+	  url "https://github.com/ceejbot/tomato/releases/download/0.5.0/tomato-toml-x86_64-apple-darwin.tar.xz"
+	  sha256 "d8791c4f2774e0a33d7243428c11de4dc391688354bda0651fbcb889a9eca2aa"
 
 	  def install
 	  	bin.install "tomato" => "tomato"
@@ -18,8 +18,8 @@ class Tomato < Formula
 	  end
 	end
 	if Hardware::CPU.arm?
-	  url "https://github.com/ceejbot/tomato/releases/download/0.4.0/tomato-toml-aarch64-apple-darwin.tar.xz"
-	  sha256 "a69a00e93d33fc1a595ca7c39e4ccfc71f519374b5082e5482fca4fab7a50177"
+	  url "https://github.com/ceejbot/tomato/releases/download/0.5.0/tomato-toml-aarch64-apple-darwin.tar.xz"
+	  sha256 "eb5f8f3bb0529039b74500f63cb423e8188594be81ec95e1c4d079c9f772f19c"
 
 	  def install
 		bin.install "tomato" => "tomato"
@@ -30,8 +30,8 @@ class Tomato < Formula
 
   on_linux do
 	if Hardware::CPU.intel?
-	  url "https://github.com/ceejbot/tomato/releases/download/0.4.0/tomato-toml-x86_64-unknown-linux-gnu.tar.xz"
-	  sha256 "a40394c35269fbd0f9a00c7454bb00811cb6228cfdb90e9e4e1f42237821053c"
+	  url "https://github.com/ceejbot/tomato/releases/download/0.5.0/tomato-toml-x86_64-unknown-linux-gnu.tar.xz"
+	  sha256 "b19bda495264a02a2eb24ee82d2cf0fe7fe7639d2d0a028b7ceac336cd8e6cd7"
 
 	  def install
 		bin.install "tomato" => "tomato"
