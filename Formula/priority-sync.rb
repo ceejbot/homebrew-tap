@@ -3,13 +3,13 @@ class PrioritySync < Formula
   on_macos do
     on_arm do
       url "https://github.com/ceejbot/priority-sync/releases/download/1.0.0/priority-sync-aarch64-apple-darwin.tar.xz"
-      sha256 "1e7e0a19b14a07b143d6663847c33f239f013edd08f390dbd8548811cdc603b6"
+      sha256 "ca4227430bac5203adaa2b1f4b4ec746a9c369fa97db7d7bb2697d5e0ea10bbb"
     end
   end
   on_linux do
     on_intel do
       url "https://github.com/ceejbot/priority-sync/releases/download/1.0.0/priority-sync-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "bc000666ebc08eb133f55b47f799fae4f3fe5b6237a4d0b8aa064ae945e7da80"
+      sha256 "15f91019162478c882ebff68cfe5b181c7a7f772f59549f93e7054336bfcfa10"
     end
   end
   license "Parity-7.0.0"
