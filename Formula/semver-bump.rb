@@ -1,20 +1,20 @@
 class SemverBump < Formula
   desc "A command-line tool for bumping semver-compliant version numbers"
   homepage "https://github.com/ceejbot/semver-bump"
-  version "1.0.0"
+  version "1.0.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/ceejbot/semver-bump/releases/download/1.0.0/semver-bump-aarch64-apple-darwin.tar.xz"
-      sha256 "7edf2d6113de3fe0d5a451dcf771408d71f7b6ebd54e18fd8b321d4cf246c971"
+      url "https://github.com/ceejbot/semver-bump/releases/download/1.0.1/semver-bump-aarch64-apple-darwin.tar.xz"
+      sha256 "3415b3fadd135565d120ff5b0a1ef7967afaece63f959f4e059903b386cafd06"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/ceejbot/semver-bump/releases/download/1.0.0/semver-bump-x86_64-apple-darwin.tar.xz"
-      sha256 "71c37fbb635ba1d9c5e5c8d95c40bdf444ef3582eb03c633c1e74889b731002a"
+      url "https://github.com/ceejbot/semver-bump/releases/download/1.0.1/semver-bump-x86_64-apple-darwin.tar.xz"
+      sha256 "70605249ae118813250e5e95f5f452b97da070c9a7c305c5a96d3a33a64ccfb6"
     end
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/ceejbot/semver-bump/releases/download/1.0.0/semver-bump-x86_64-unknown-linux-gnu.tar.xz"
-    sha256 "6aae3c406ece92319eeeb8acfe12b1179f405954be9a6cd009bf324de124c4f2"
+    url "https://github.com/ceejbot/semver-bump/releases/download/1.0.1/semver-bump-x86_64-unknown-linux-gnu.tar.xz"
+    sha256 "644af381411d23dd253e6f66e7dd4adbad669eb768b0bc821b244c8d479c3063"
   end
   license "Parity-7.0.0"
 
