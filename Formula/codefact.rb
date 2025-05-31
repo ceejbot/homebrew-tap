@@ -34,8 +34,8 @@ class Codefact < Formula
     end
 
     def install
-        bin.install codefact if OS.mac? && Hardware::CPU.arm?
-        bin.install codefact if OS.mac? && Hardware::CPU.intel?
+        bin.install "codefact" if OS.mac? && Hardware::CPU.arm?
+        bin.install "codefact" if OS.mac? && Hardware::CPU.intel?
 
         install_binary_aliases!
 
