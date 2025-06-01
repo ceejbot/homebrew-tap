@@ -1,15 +1,15 @@
 class Formulaic < Formula
-    desc "Create homebrew formulas for simple rust crate bins."
+    desc "Update a Homebrew tap formula for a Rust project from its latest github release."
     homepage "https://api.github.com/repos/ceejbot/formulaic"
-    version "0.1.1"
+    version "0.2.0"
     license "Parity-7.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/formulaic/releases/download/main/formulaic-aarch64-apple-darwin.tar.gz"
-        sha256 "5baa3355c92c703bf8bfb958c6a998ee1f5e404f4caf68da859a609a6d963d93"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.2.0/formulaic-aarch64-apple-darwin.tar.gz"
+        sha256 "c60d5923a790a17a536128a7eabbddf282f69fde3630d5bbf679fb95347a7136"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/formulaic/releases/download/main/formulaic-x86_64-apple-darwin.tar.gz"
-        sha256 "7315455c51131320f210bbfeafd7cc249fd3e4cf7f2148ba116c3cdaea8a1b2b"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.2.0/formulaic-x86_64-apple-darwin.tar.gz"
+        sha256 "3ead336c378a0c26325940f1d16f81a9d6fea2700d39c0d87f0af68674270ccc"
     end
 
     BINARY_ALIASES = {
@@ -38,7 +38,6 @@ class Formulaic < Formula
         bin.install "formulaic" if OS.mac? && Hardware::CPU.intel?
 
         install_binary_aliases!
-
         doc_files = Dir["README.*", "readme.*", "LICENSE", "LICENSE.*", "CHANGELOG.*"]
         leftover_contents = Dir["*"] - doc_files
         pkgshare.install(*leftover_contents) unless leftover_contents.empty?
