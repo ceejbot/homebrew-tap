@@ -1,10 +1,9 @@
 require "download_strategy"
-require "utils/github/artifacts"
 require "utils/formatter"
 require "utils/github"
 require "system_command"
 
-class GitHubCliDownloadStrategy < GitHubArtifactDownloadStrategy
+class GitHubCliDownloadStrategy < CurlDownloadStrategy
 	require "utils/formatter"
 	require "utils/github"
 	require "system_command"
@@ -27,6 +26,9 @@ class GitHubCliDownloadStrategy < GitHubArtifactDownloadStrategy
 		    puts "Already downloaded: #{cached_location}"
 		else
 			begin
+			  	# Create the temporary directory
+			  	temporary_path.dirname.mkpath
+
 			  	# Use gh CLI to download the release asset
 			  	system_command("gh", args: [
 				   		"release", "download",
@@ -35,7 +37,7 @@ class GitHubCliDownloadStrategy < GitHubArtifactDownloadStrategy
 						"-D", "#{temporary_path}"
 				     ], print_stderr: true)
 			rescue ErrorDuringExecution
-        		raise "GitHub CLI download failed for: #{url}"
+        		raise CurlDownloadStrategyError, "GitHub CLI download failed for: #{url}"
       		end
 			cached_location.dirname.mkpath
 			
@@ -45,7 +47,7 @@ class GitHubCliDownloadStrategy < GitHubArtifactDownloadStrategy
 			if downloaded_file
 				FileUtils.mv(downloaded_file, cached_location)
 			else
-				raise "Downloaded file not found in #{temporary_path}"
+				raise CurlDownloadStrategyError, "Downloaded file not found in #{temporary_path}"
 			end
 		end
 
@@ -60,7 +62,7 @@ class FormulaicTest < Formula
     version "0.1.1"
     license "Parity-7.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/formulaic/releases/download/main/formulaic-x86_64-apple-darwin.tar.gz", using: GitHubCliDownloadStrategy
+        url    "https://github.com/ceejbot/formulaic/releases/download/main/formulaic-aarch64-apple-darwin.tar.gz", using: GitHubCliDownloadStrategy
         sha256 "5baa3355c92c703bf8bfb958c6a998ee1f5e404f4caf68da859a609a6d963d93"
     end
     if OS.mac? && Hardware::CPU.intel?
