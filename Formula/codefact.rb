@@ -1,15 +1,15 @@
 class Codefact < Formula
-    desc "A tool for keeping you logged into CodeArtifact, nearly hands-free."
+    desc "a command-line tool for keeping a fresh CodeArtifact auth token"
     homepage "https://api.github.com/repos/ceejbot/codefact"
-    version "1.0.2"
+    version "1.0.3"
     license "Parity-7.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/codefact/releases/download/v1.0.2/codefact-aarch64-apple-darwin.tar.gz"
-        sha256 "0e0d03a2f787f6d875ff02ce91cf495cc95878ace96b9a9c8f3073a6a9688b44"
+        url    "https://github.com/ceejbot/codefact/releases/download/v1.0.3/codefact-aarch64-apple-darwin.tar.gz"
+        sha256 "33f03058b295929273f6561cb417dc0206f47f47fa4c740cc3d810cc280739a3"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/codefact/releases/download/v1.0.2/codefact-x86_64-apple-darwin.tar.gz"
-        sha256 "1f93ce0f338d205c460f2f4c2c3c38e6ed9bdfa82252d9d7ed43babc49d771fd"
+        url    "https://github.com/ceejbot/codefact/releases/download/v1.0.3/codefact-x86_64-apple-darwin.tar.gz"
+        sha256 "22e9d6262e0786f2a824f8daa8c13185e1db78e7699bfe560a2cee63134e7c0f"
     end
 
     BINARY_ALIASES = {
@@ -38,7 +38,6 @@ class Codefact < Formula
         bin.install "codefact" if OS.mac? && Hardware::CPU.intel?
 
         install_binary_aliases!
-
         doc_files = Dir["README.*", "readme.*", "LICENSE", "LICENSE.*", "CHANGELOG.*"]
         leftover_contents = Dir["*"] - doc_files
         pkgshare.install(*leftover_contents) unless leftover_contents.empty?
