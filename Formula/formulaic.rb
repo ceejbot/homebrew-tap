@@ -1,15 +1,19 @@
 class Formulaic < Formula
     desc "Update a Homebrew tap formula for a Rust project from its latest github release."
-    homepage "https://api.github.com/repos/ceejbot/formulaic"
-    version "0.2.0"
+    homepage "https://github.com/ceejbot/formulaic"
+    version "0.3.0"
     license "Parity-7.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/formulaic/releases/download/v0.2.0/formulaic-aarch64-apple-darwin.tar.gz"
-        sha256 "c60d5923a790a17a536128a7eabbddf282f69fde3630d5bbf679fb95347a7136"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.3.0/formulaic-aarch64-apple-darwin.tar.gz"
+        sha256 "01ce34508a24748f80a8b3a6a72f1babbc97abd25115f8dd6bbb55510b45c53f"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/formulaic/releases/download/v0.2.0/formulaic-x86_64-apple-darwin.tar.gz"
-        sha256 "3ead336c378a0c26325940f1d16f81a9d6fea2700d39c0d87f0af68674270ccc"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.3.0/formulaic-x86_64-apple-darwin.tar.gz"
+        sha256 "71f86a9444f57eb4c40117af3f8e2624bd60e81497fa0b02ca2e1f9e67be0f5c"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.3.0/formulaic-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "7e7e21c59ef593cd497499101813bc503c1eada9703a74d2862a1bafe7054e19"
     end
 
     BINARY_ALIASES = {
@@ -36,6 +40,7 @@ class Formulaic < Formula
     def install
         bin.install "formulaic" if OS.mac? && Hardware::CPU.arm?
         bin.install "formulaic" if OS.mac? && Hardware::CPU.intel?
+        bin.install "formulaic" if OS.linux? && Hardware::CPU.intel?
 
         install_binary_aliases!
         doc_files = Dir["README.*", "readme.*", "LICENSE", "LICENSE.*", "CHANGELOG.*"]
