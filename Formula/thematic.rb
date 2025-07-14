@@ -1,15 +1,15 @@
 class Thematic < Formula
     desc "Convert themes between VSCode and Zed formats"
     homepage "https://github.com/ceejbot/thematic"
-    version "0.1.2"
+    version "0.1.3"
     license "Parity-7.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/thematic/releases/download/v0.1.2/thematic-aarch64-apple-darwin.tar.gz"
-        sha256 "8f50eb8db65d33e409f1f03ade7187d3a4612e6d77ef0d75e9152a89a0ca0a0e"
+        url    "https://github.com/ceejbot/thematic/releases/download/v0.1.3/thematic-aarch64-apple-darwin.tar.gz"
+        sha256 "e6bee3d6b1adf7016d534816f1deb31887e802a2743f127bbbccc98aa44c897d"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/thematic/releases/download/v0.1.2/thematic-x86_64-apple-darwin.tar.gz"
-        sha256 "814c50b06e185d45efd349d3d64a29ebf263c5365aa0657d6c2bf74140adbde7"
+        url    "https://github.com/ceejbot/thematic/releases/download/v0.1.3/thematic-x86_64-apple-darwin.tar.gz"
+        sha256 "2cad2c2c8fe0126d9b2845a9f1839d5400a106f3e43b475487f685038660aca5"
     end
 
     BINARY_ALIASES = {
