@@ -1,25 +1,25 @@
 class Formulaic < Formula
     desc "Update a Homebrew tap formula for a Rust project from its latest github release."
     homepage "https://github.com/ceejbot/formulaic"
-    version "0.4.0"
+    version "0.5.0"
     license "Parity-7.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/formulaic/releases/download/v0.4.0/formulaic-aarch64-apple-darwin.tar.gz"
-        sha256 "6000a6abb581578b298ec57528268ae2bbca119572833901329bf2e978d3f5d3"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.5.0/formulaic-aarch64-apple-darwin.tar.gz"
+        sha256 "1eb0631b8e5db6cf2745f39b88f006d9d17af7be59b0a2b39024b54d6a143912"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/formulaic/releases/download/v0.4.0/formulaic-x86_64-apple-darwin.tar.gz"
-        sha256 "aed94de8afb66e85e8ffd075edc79103cf7955f12e5b5f4db792044ff75554f9"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.5.0/formulaic-x86_64-apple-darwin.tar.gz"
+        sha256 "bd4a19b8249ff211f136fdc8addfa7338bae10e4a8d8300de994de8e5a14a65c"
     end
     if OS.linux? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/formulaic/releases/download/v0.4.0/formulaic-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "c31af0cc7b91d84ae8785d57cb7349d4695cd386753ed9e2429a54f9d445bdc7"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.5.0/formulaic-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "ee103f005358a85aadbd0e9d8bea6bdf7a00c6f3c1017d1bf259d1fe1cba45ad"
     end
 
     BINARY_ALIASES = {
         "aarch64-apple-darwin":     {},
         "x86_64-apple-darwin":      {},
-        "x86_64-pc-windows-gnu":    {},
+        "aarch64-unknown-linux-gnu": {},
         "x86_64-unknown-linux-gnu": {},
     }.freeze
 
