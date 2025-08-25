@@ -1,15 +1,19 @@
 class Tale < Formula
     desc "A tail-compatible tool for pretty-printing ndjson files, especially logs."
     homepage "https://github.com/ceejbot/tale"
-    version "0.2.0"
+    version "0.2.1"
     license "Parity-7.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/tale/releases/download/v0.2.0/tale-aarch64-apple-darwin.tar.gz"
-        sha256 "b43f97301b60976dca1ba75f7d6d5814f7e275ed28cf38912d27f34b1be7ede2"
+        url    "https://github.com/ceejbot/tale/releases/download/v0.2.1/tale-aarch64-apple-darwin.tar.gz"
+        sha256 "3295b815c72e950a062127faf4ec0d0246004422d7c336a09f0e653051c62097"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/tale/releases/download/v0.2.0/tale-x86_64-apple-darwin.tar.gz"
-        sha256 "c94ae55443e0419d5879c12010e95ab65b42e5f33685d367d716d8fca56ccc46"
+        url    "https://github.com/ceejbot/tale/releases/download/v0.2.1/tale-x86_64-apple-darwin.tar.gz"
+        sha256 "cf8ae7dbead6d0ce8048b43c36ec1ec25bc4f12bf9760d52d7df31616db46aed"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+        url    "https://github.com/ceejbot/tale/releases/download/v0.2.1/tale-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "bba9627247821c153b91a161ceef08f138ec4d5d344aca0ace5048d14caf02d9"
     end
 
     BINARY_ALIASES = {
@@ -36,6 +40,7 @@ class Tale < Formula
     def install
         bin.install "tale" if OS.mac? && Hardware::CPU.arm?
         bin.install "tale" if OS.mac? && Hardware::CPU.intel?
+        bin.install "tale" if OS.linux? && Hardware::CPU.intel?
 
         install_binary_aliases!
         doc_files = Dir["README.*", "readme.*", "LICENSE", "LICENSE.*", "CHANGELOG.*"]
