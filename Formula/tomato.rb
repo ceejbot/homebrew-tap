@@ -1,30 +1,25 @@
-require "download_strategy"
-require "utils/formatter"
-require "utils/github"
-require "system_command"
-
 class Tomato < Formula
     desc "🍅 A command-line tool to get and set values in toml files while preserving comments and formatting."
     homepage "https://github.com/ceejbot/tomato"
-    version "0.5.1"
+    version "1.0.0"
     license "BlueOak-1.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/tomato/releases/download/v0.5.1/tomato-aarch64-apple-darwin.tar.gz"
-        sha256 "10837e772d4e836035d4e7bfe2462136c3669534090aeb8c8f2cf65a0eb75c2d"
+        url    "https://github.com/ceejbot/tomato/releases/download/v1.0.0/tomato-aarch64-apple-darwin.tar.gz"
+        sha256 "ab1d277508da7d1f0b9e1ecdf84c85adc57ccde2950319168b787f8b8e2d7eab"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/tomato/releases/download/v0.5.1/tomato-x86_64-apple-darwin.tar.gz"
-        sha256 "312e6198b129b5e412d1817b6f88bf3595821566817023ac2a1eac5db12f2aaa"
+        url    "https://github.com/ceejbot/tomato/releases/download/v1.0.0/tomato-x86_64-apple-darwin.tar.gz"
+        sha256 "5ed3dd483ece52381e01f5aef9d25a59b5794b9a4b0e990d7bbd1d59911349c7"
     end
     if OS.linux? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/tomato/releases/download/v0.5.1/tomato-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "f9c5c4841922185d3c9c560c5f1fa8d729c9bb5190dae96fc0e870a7bef4fbeb"
+        url    "https://github.com/ceejbot/tomato/releases/download/v1.0.0/tomato-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "6e072a0624387066c2ac7724508bd22c7acc4acd9ab1c928054841cebb2f4859"
     end
 
     BINARY_ALIASES = {
         "aarch64-apple-darwin":     {},
         "x86_64-apple-darwin":      {},
-        "x86_64-pc-windows-gnu":    {},
+        "aarch64-unknown-linux-gnu": {},
         "x86_64-unknown-linux-gnu": {},
     }.freeze
 
