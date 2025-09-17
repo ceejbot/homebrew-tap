@@ -13,6 +13,7 @@ Tools written to solve extremely specific problems that you might or might not h
 - [mcm-meta-helper](https://github.com/ceejbot/mcm-meta-helper) - validity-check your MCM mod configuration; for mod authors
 - [md2nexus](https://github.com/ceejbot/md2nexus) - turn a markdown file into NexusMods BBCode, preserving tables
 - [nuc2not](https://github.com/ceejbot/nuc2not) - sort almost correct migration of nuclino to notion
+- [paletter](https://github.com/ceejbot/paletter) - turn tinted-theming yaml color files into MacOS `clr` palette files
 - [priority-sync](https://github.com/ceejbot/priority-sync) - sync skyrim modset priority lists
 - [semver-bump](https://github.com/ceejbot/semver-bump) - a semver bumper that does exactly what I want
 - [tale](https://github.com/ceejbot/tale) - a tail-compatible utility for pretty-printing newline-delimited json log files
