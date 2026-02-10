@@ -1,19 +1,19 @@
 class CultureShip < Formula
     desc "Iain M. Banks's Culture ship names in a library."
     homepage ""
-    version "0.4.0"
+    version "0.5.0"
     license "BlueOak-1.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/gsv-culture-ships/releases/download/v0.4.0/culture-ship-aarch64-apple-darwin.tar.gz"
-        sha256 "329e8de19d59e91ac6c378ebe6d8b4253dd30c2f0408425e4cf9b4b686d98b8c"
+        url    "https://github.com/ceejbot/gsv-culture-ships/releases/download/v0.5.0/culture-ship-aarch64-apple-darwin.tar.gz"
+        sha256 "ffae98b2c8d91d849de8c99902349309dbcf3760204fe29c12c1b36d3e492f46"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/gsv-culture-ships/releases/download/v0.4.0/culture-ship-x86_64-apple-darwin.tar.gz"
-        sha256 "54fd3ec137f5e4b8b48430916f743d1b14402c718f2d2d23fa9f37885eaebee2"
+        url    "https://github.com/ceejbot/gsv-culture-ships/releases/download/v0.5.0/culture-ship-x86_64-apple-darwin.tar.gz"
+        sha256 "e7d7d9f1c71f5a1477eee00d090ff0e3b1855b4b2ab990aeba07818c70a83533"
     end
     if OS.linux? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/gsv-culture-ships/releases/download/v0.4.0/culture-ship-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "c0632097c56da7ee31f6e5e754ac29b05936b0617f8673aa01ed3fbc35d0c13e"
+        url    "https://github.com/ceejbot/gsv-culture-ships/releases/download/v0.5.0/culture-ship-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "7c0fa48e4fe0afa5ed948f42e9342644fba2cb58cde83acecc2223e5a23cd60c"
     end
 
     BINARY_ALIASES = {
