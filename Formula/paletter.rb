@@ -1,12 +1,12 @@
 class Paletter < Formula
     desc "Convert tinty YAML color palettes to macOS .clr files"
     homepage "https://github.com/ceejbot/paletter"
-    version "1.0.0"
+    version "1.0.1"
     license "Parity-7.0.0"
 
     if OS.mac?
-        url    "https://github.com/ceejbot/paletter/releases/download/latest/paletter-universal-apple-darwin.tar.gz"
-        sha256 "222162202f57eda7755a7e1ead3f80c1f496ea567261d44b6643bbb601150d7b"
+        url    "https://github.com/ceejbot/paletter/releases/download/v1.0.1/paletter-universal-apple-darwin.tar.gz"
+        sha256 "9c8737410269804fbc696f608f0adf6d7cbbe7d85cbc4b04ae14dcf5e6537226"
     end
 
     BINARY_ALIASES = {
