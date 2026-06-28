@@ -1,40 +1,19 @@
 class Formulaic < Formula
     desc "Update a Homebrew tap formula for a project from a manifest or Cargo.toml."
     homepage "https://github.com/ceejbot/formulaic"
-    version "0.7.0"
+    version "0.8.0"
     license "Parity-7.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/formulaic/releases/download/v0.7.0/formulaic-aarch64-apple-darwin.tar.gz"
-        sha256 "11d0d9c461e1e52c69c4774285e96af6229bcf1a1a4aad1521f1cd78eb2afdda"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.8.0/formulaic-aarch64-apple-darwin.tar.gz"
+        sha256 "ea54800e52243b23c50b441e1ddfc63e8bde96a0c9361de4b95594766366ffe7"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/formulaic/releases/download/v0.7.0/formulaic-x86_64-apple-darwin.tar.gz"
-        sha256 "c5f509d78e393a7b75b01309015d1edc8860595bfd235e755594381673d1436b"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.8.0/formulaic-x86_64-apple-darwin.tar.gz"
+        sha256 "27412b69312a34208f759be982e072002040ef52f8ab7fdad859240111b5fb44"
     end
     if OS.linux? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/formulaic/releases/download/v0.7.0/formulaic-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "9f3e0475f3b85ea699f5415b1062ef4a414666beb2bd3f70a4177c94acc68f0e"
-    end
-
-    BINARY_ALIASES = {
-        "aarch64-apple-darwin":     {},
-        "x86_64-apple-darwin":      {},
-        "aarch64-unknown-linux-gnu": {},
-        "x86_64-unknown-linux-gnu": {},
-    }.freeze
-
-    def target_triple
-        cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
-        os = OS.mac? ? "apple-darwin" : "unknown-linux-gnu"
-        "#{cpu}-#{os}"
-    end
-
-    def install_binary_aliases!
-        BINARY_ALIASES[target_triple.to_sym].each do |source, dests|
-            dests.each do |dest|
-            bin.install_symlink bin/source.to_s => dest
-            end
-        end
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.8.0/formulaic-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "e05e0889e910fc67bcf58c5fe1eb08ef27fec947f151e39a0c66d96ae7725fbf"
     end
 
     def install
@@ -48,7 +27,6 @@ class Formulaic < Formula
             bin.install "formulaic"
         end
 
-        install_binary_aliases!
         doc_files = Dir["README.*", "readme.*", "LICENSE", "LICENSE.*", "CHANGELOG.*"]
         leftover_contents = Dir["*"] - doc_files
         pkgshare.install(*leftover_contents) unless leftover_contents.empty?
