@@ -1,48 +1,32 @@
 class Tomato < Formula
     desc "🍅 A command-line tool to get and set values in toml files while preserving comments and formatting."
     homepage "https://github.com/ceejbot/tomato"
-    version "1.0.0"
+    version "1.1.0"
     license "BlueOak-1.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/tomato/releases/download/v1.0.0/tomato-aarch64-apple-darwin.tar.gz"
-        sha256 "ab1d277508da7d1f0b9e1ecdf84c85adc57ccde2950319168b787f8b8e2d7eab"
+        url    "https://github.com/ceejbot/tomato/releases/download/v1.1.0/tomato-aarch64-apple-darwin.tar.gz"
+        sha256 "3bbadb941fa984753b84f8ddd09e72d8d126d1d5ee3857fba118b6250c9a1428"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/tomato/releases/download/v1.0.0/tomato-x86_64-apple-darwin.tar.gz"
-        sha256 "5ed3dd483ece52381e01f5aef9d25a59b5794b9a4b0e990d7bbd1d59911349c7"
+        url    "https://github.com/ceejbot/tomato/releases/download/v1.1.0/tomato-x86_64-apple-darwin.tar.gz"
+        sha256 "868e64bc3dae04b5cd28d078c27f7c60e791bc1742089600042774a2201590bc"
     end
     if OS.linux? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/tomato/releases/download/v1.0.0/tomato-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "6e072a0624387066c2ac7724508bd22c7acc4acd9ab1c928054841cebb2f4859"
-    end
-
-    BINARY_ALIASES = {
-        "aarch64-apple-darwin":     {},
-        "x86_64-apple-darwin":      {},
-        "aarch64-unknown-linux-gnu": {},
-        "x86_64-unknown-linux-gnu": {},
-    }.freeze
-
-    def target_triple
-        cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
-        os = OS.mac? ? "apple-darwin" : "unknown-linux-gnu"
-        "#{cpu}-#{os}"
-    end
-
-    def install_binary_aliases!
-        BINARY_ALIASES[target_triple.to_sym].each do |source, dests|
-            dests.each do |dest|
-            bin.install_symlink bin/source.to_s => dest
-            end
-        end
+        url    "https://github.com/ceejbot/tomato/releases/download/v1.1.0/tomato-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "a3f9e5b2701a0d9bfd06745d61ab9fd7bc651e219dfddea4a08e47b4c3656b28"
     end
 
     def install
-        bin.install "tomato" if OS.mac? && Hardware::CPU.arm?
-        bin.install "tomato" if OS.mac? && Hardware::CPU.intel?
-        bin.install "tomato" if OS.linux? && Hardware::CPU.intel?
+        if OS.mac? && Hardware::CPU.arm?
+            bin.install "tomato"
+        end
+        if OS.mac? && Hardware::CPU.intel?
+            bin.install "tomato"
+        end
+        if OS.linux? && Hardware::CPU.intel?
+            bin.install "tomato"
+        end
 
-        install_binary_aliases!
         doc_files = Dir["README.*", "readme.*", "LICENSE", "LICENSE.*", "CHANGELOG.*"]
         leftover_contents = Dir["*"] - doc_files
         pkgshare.install(*leftover_contents) unless leftover_contents.empty?
