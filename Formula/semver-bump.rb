@@ -1,48 +1,32 @@
 class SemverBump < Formula
     desc "A command-line tool for bumping semver-compliant version numbers"
     homepage "https://github.com/ceejbot/semver-bump"
-    version "2.0.0"
+    version "2.0.1"
     license "Parity-7.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/semver-bump/releases/download/v2.0.0/semver-bump-aarch64-apple-darwin.tar.gz"
-        sha256 "1cf3c76a3bfe01afe5fc6b362905dd576ad283f104bc55a455722cfad2e55686"
+        url    "https://github.com/ceejbot/semver-bump/releases/download/v2.0.1/semver-bump-aarch64-apple-darwin.tar.gz"
+        sha256 "a64e950cf6d5d5ca05971608197c568f2e137c47fd8dce7c83f61832d07ef4ab"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/semver-bump/releases/download/v2.0.0/semver-bump-x86_64-apple-darwin.tar.gz"
-        sha256 "6689185edcf256e3d11281a22aff74f0db1c750c4f17ca33f2a44560b5bab356"
+        url    "https://github.com/ceejbot/semver-bump/releases/download/v2.0.1/semver-bump-x86_64-apple-darwin.tar.gz"
+        sha256 "cd55ed27a661b387949a55c44a858938a005c88f19af1bc29764b7794fb44e4b"
     end
     if OS.linux? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/semver-bump/releases/download/v2.0.0/semver-bump-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "8a1e5b9626685455acc9b0d8b7f2e787135b6afea97825ed6dade5b83b764fb9"
-    end
-
-    BINARY_ALIASES = {
-        "aarch64-apple-darwin":     {},
-        "x86_64-apple-darwin":      {},
-        "aarch64-unknown-linux-gnu": {},
-        "x86_64-unknown-linux-gnu": {},
-    }.freeze
-
-    def target_triple
-        cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
-        os = OS.mac? ? "apple-darwin" : "unknown-linux-gnu"
-        "#{cpu}-#{os}"
-    end
-
-    def install_binary_aliases!
-        BINARY_ALIASES[target_triple.to_sym].each do |source, dests|
-            dests.each do |dest|
-            bin.install_symlink bin/source.to_s => dest
-            end
-        end
+        url    "https://github.com/ceejbot/semver-bump/releases/download/v2.0.1/semver-bump-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "28fdbc24a642e667047f5eba74c281fbeb1a4c85a6a4c50da26dda549c28f2c6"
     end
 
     def install
-        bin.install "semver-bump" if OS.mac? && Hardware::CPU.arm?
-        bin.install "semver-bump" if OS.mac? && Hardware::CPU.intel?
-        bin.install "semver-bump" if OS.linux? && Hardware::CPU.intel?
+        if OS.mac? && Hardware::CPU.arm?
+            bin.install "semver-bump"
+        end
+        if OS.mac? && Hardware::CPU.intel?
+            bin.install "semver-bump"
+        end
+        if OS.linux? && Hardware::CPU.intel?
+            bin.install "semver-bump"
+        end
 
-        install_binary_aliases!
         doc_files = Dir["README.*", "readme.*", "LICENSE", "LICENSE.*", "CHANGELOG.*"]
         leftover_contents = Dir["*"] - doc_files
         pkgshare.install(*leftover_contents) unless leftover_contents.empty?
