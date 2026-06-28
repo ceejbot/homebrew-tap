@@ -1,48 +1,25 @@
 class Tale < Formula
     desc "A tail-compatible tool for pretty-printing ndjson files, especially logs."
     homepage "https://github.com/ceejbot/tale"
-    version "0.3.0"
+    version "0.3.2"
     license "Parity-7.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/tale/releases/download/v0.3.0/tale-aarch64-apple-darwin.tar.gz"
-        sha256 "a496591a09c7606b15582c0a279392fe3dd476749579ce96fbaf5a99700e7c1c"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/tale/releases/download/v0.3.0/tale-x86_64-apple-darwin.tar.gz"
-        sha256 "079c7b333d5005f6dd14d515a68f6dc61d70b9f0751d296068ba15f992ab678b"
+        url    "https://github.com/ceejbot/tale/releases/download/v0.3.2/tale-aarch64-apple-darwin.tar.gz"
+        sha256 "707007325fb7578d907f2ceed31b6637a9380607ca47de6fef96fac1f792f30f"
     end
     if OS.linux? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/tale/releases/download/v0.3.0/tale-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "692836e8ec6d8b910f40d5cd28c00d99844f56952aaffe48c4dd92f099443bc2"
-    end
-
-    BINARY_ALIASES = {
-        "aarch64-apple-darwin":     {},
-        "x86_64-apple-darwin":      {},
-        "aarch64-unknown-linux-gnu": {},
-        "x86_64-unknown-linux-gnu": {},
-    }.freeze
-
-    def target_triple
-        cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
-        os = OS.mac? ? "apple-darwin" : "unknown-linux-gnu"
-        "#{cpu}-#{os}"
-    end
-
-    def install_binary_aliases!
-        BINARY_ALIASES[target_triple.to_sym].each do |source, dests|
-            dests.each do |dest|
-            bin.install_symlink bin/source.to_s => dest
-            end
-        end
+        url    "https://github.com/ceejbot/tale/releases/download/v0.3.2/tale-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "6b1cce1d533def8dd1bb3badf55d214f21fc988e0c6bc9d50ad66bfc34836ed6"
     end
 
     def install
-        bin.install "tale" if OS.mac? && Hardware::CPU.arm?
-        bin.install "tale" if OS.mac? && Hardware::CPU.intel?
-        bin.install "tale" if OS.linux? && Hardware::CPU.intel?
+        if OS.mac? && Hardware::CPU.arm?
+            bin.install "tale"
+        end
+        if OS.linux? && Hardware::CPU.intel?
+            bin.install "tale"
+        end
 
-        install_binary_aliases!
         doc_files = Dir["README.*", "readme.*", "LICENSE", "LICENSE.*", "CHANGELOG.*"]
         leftover_contents = Dir["*"] - doc_files
         pkgshare.install(*leftover_contents) unless leftover_contents.empty?
