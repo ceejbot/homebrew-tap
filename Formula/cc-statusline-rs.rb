@@ -1,23 +1,23 @@
 class CcStatuslineRs < Formula
     desc "An opinionated ANSI statusline for Claude Code"
     homepage ""
-    version "0.5.0"
+    version "0.6.0"
     license "Apache-2.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/cc-statusline-rs/releases/download/v0.5.0/cc-statusline-rs-aarch64-apple-darwin.tar.gz"
-        sha256 "ff31da518eee0eb4deb60eccf0e907c1e64d5fcbf1f600c156ba6d2e9c2e9e1d"
+        url    "https://github.com/ceejbot/cc-statusline-rs/releases/download/v0.6.0/cc-statusline-rs-aarch64-apple-darwin.tar.gz"
+        sha256 "93c0f457c3cd5a12e392778055e7778c3fe941a43b5159ef4ad6eed7c0316a66"
     end
     if OS.linux? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/cc-statusline-rs/releases/download/v0.5.0/cc-statusline-rs-aarch64-unknown-linux-gnu.tar.gz"
-        sha256 "b40acef10be643f087923927671290d998f4a895aba8271ac46fc259f1b56a64"
+        url    "https://github.com/ceejbot/cc-statusline-rs/releases/download/v0.6.0/cc-statusline-rs-aarch64-unknown-linux-gnu.tar.gz"
+        sha256 "829e58222f80276025f76d06e2773852fbbcbe121d45ab785ff2b869073af56d"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/cc-statusline-rs/releases/download/v0.5.0/cc-statusline-rs-x86_64-apple-darwin.tar.gz"
-        sha256 "7601b893c4e7277ca294ddb95f9cbcf6317416d5a8c4c89b614cef26d34d76ee"
+        url    "https://github.com/ceejbot/cc-statusline-rs/releases/download/v0.6.0/cc-statusline-rs-x86_64-apple-darwin.tar.gz"
+        sha256 "2efb472250ed810e0fcecfa9b75351913abbce89cf5f4efe018b403bd2840d0c"
     end
     if OS.linux? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/cc-statusline-rs/releases/download/v0.5.0/cc-statusline-rs-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "800cf7e2dff8452faaada845c3bbff2e1b5b74609d3849c8811fcc7aaeef9484"
+        url    "https://github.com/ceejbot/cc-statusline-rs/releases/download/v0.6.0/cc-statusline-rs-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "a2b8311193e1b9dd1066b90342960752b9290d80971fbbba05f30d181860b682"
     end
 
     def install
