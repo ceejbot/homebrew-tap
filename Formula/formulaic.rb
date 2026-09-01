@@ -1,23 +1,30 @@
 class Formulaic < Formula
     desc "Update a Homebrew tap formula for a project from a manifest or Cargo.toml."
     homepage "https://github.com/ceejbot/formulaic"
-    version "0.8.0"
+    version "0.8.1"
     license "Parity-7.0.0"
     if OS.mac? && Hardware::CPU.arm?
-        url    "https://github.com/ceejbot/formulaic/releases/download/v0.8.0/formulaic-aarch64-apple-darwin.tar.gz"
-        sha256 "ea54800e52243b23c50b441e1ddfc63e8bde96a0c9361de4b95594766366ffe7"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.8.1/formulaic-aarch64-apple-darwin.tar.gz"
+        sha256 "5d3b548ba577336c7c64cc68bbe22e51b04f96fcd0186f407e9954bcd45db4f5"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.8.1/formulaic-aarch64-unknown-linux-gnu.tar.gz"
+        sha256 "4adb1da840e4a6ae559c28166a59c5e6e98597d76b7ee9d393330e0a9d0a97db"
     end
     if OS.mac? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/formulaic/releases/download/v0.8.0/formulaic-x86_64-apple-darwin.tar.gz"
-        sha256 "27412b69312a34208f759be982e072002040ef52f8ab7fdad859240111b5fb44"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.8.1/formulaic-x86_64-apple-darwin.tar.gz"
+        sha256 "7db62c7afaadf3665c61f28872b22de3f1beae1873eaeb8f82faa6f91cf3bb61"
     end
     if OS.linux? && Hardware::CPU.intel?
-        url    "https://github.com/ceejbot/formulaic/releases/download/v0.8.0/formulaic-x86_64-unknown-linux-gnu.tar.gz"
-        sha256 "e05e0889e910fc67bcf58c5fe1eb08ef27fec947f151e39a0c66d96ae7725fbf"
+        url    "https://github.com/ceejbot/formulaic/releases/download/v0.8.1/formulaic-x86_64-unknown-linux-gnu.tar.gz"
+        sha256 "0c2db7d20e09f3448876cdce6d6d4942ce48c841d355ecb4c6a113c2c602d09a"
     end
 
     def install
         if OS.mac? && Hardware::CPU.arm?
+            bin.install "formulaic"
+        end
+        if OS.linux? && Hardware::CPU.arm?
             bin.install "formulaic"
         end
         if OS.mac? && Hardware::CPU.intel?
